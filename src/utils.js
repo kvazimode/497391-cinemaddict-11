@@ -7,4 +7,12 @@ const pickRandom = (array) => {
   return array[getRandomInt(0, array.length - 1)];
 }
 
-export {getRandomInt, pickRandom}
+const generateList = (f, data, count) => {
+  let arr = [];
+  for (let i=0; i<count; i++) {
+    arr.push(f(data, count))
+  }
+  return arr;
+}
+
+export {getRandomInt, pickRandom, generateList}

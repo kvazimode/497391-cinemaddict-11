@@ -68,7 +68,13 @@ export default {
     ],
     'release': {
       'date': ``,
-      'release_country': ``,
+      'release_country': [
+        `Russia`,
+        `Finland`,
+        `Japan`,
+        `USA`,
+        `France`
+      ],
     },
     'runtime': 0,
     'genre': [
