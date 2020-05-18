@@ -5,6 +5,24 @@ import {filmListTopRatedTemplate} from './components/top-rated.js';
 import {filmListMostCommentedTemplate} from './components/most-commented.js';
 import {cardTemplate} from './components/film-card.js';
 import {showMoreTemplate} from './components/show-more.js';
+import {getRandomInt, pickRandom} from './utils.js';
+import commentMock from './mocks/comment.js';
+
+const generateComment = (data) => {
+  const id = getRandomInt(1, 999);
+  const author = pickRandom(data.author);
+  const comment = pickRandom(data.comment);
+  const emotion = pickRandom(data.emotion);
+  const dateString = `2019-${getRandomInt(1, 12)}-${getRandomInt(1, 31)}`;
+  const date = new Date(dateString);
+  return {
+    id,
+    author,
+    comment,
+    emotion,
+    date,
+  }
+}
 
 const headerContainer = document.querySelector(`.header`);
 const mainContainer = document.querySelector(`.main`);
