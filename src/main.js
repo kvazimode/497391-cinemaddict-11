@@ -69,8 +69,6 @@ const generateFilm = (data) => {
   }
 }
 
-console.log(generateFilm(filmMock));
-
 const headerContainer = document.querySelector(`.header`);
 const mainContainer = document.querySelector(`.main`);
 
