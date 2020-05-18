@@ -10,7 +10,7 @@ const pickRandom = (array) => {
 const generateList = (f, data, count) => {
   let arr = [];
   for (let i=0; i<count; i++) {
-    arr.push(f(data, count))
+    arr.push(f(data))
   }
   return arr;
 }

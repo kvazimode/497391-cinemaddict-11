@@ -29,11 +29,11 @@ export default {
     'poster': [
       `made-for-each-other.png`,
       `popeye-meets-sinbad.png`,
-      `sagebrush-trail.png`,
-      `santa-claus-conquers-the-martians.png`,
-      `the-dance-of-life.png`,
-      `the-great-flamarion.png`,
-      `the-man-with-the-golden-arm.png`,
+      `sagebrush-trail.jpg`,
+      `santa-claus-conquers-the-martians.jpg`,
+      `the-dance-of-life.jpg`,
+      `the-great-flamarion.jpg`,
+      `the-man-with-the-golden-arm.jpg`,
     ],
     'age_rating': [0, 3, 6, 12, 16, 18],
     'director': [
