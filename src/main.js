@@ -5,6 +5,7 @@ import {filmListTopRatedTemplate} from './components/top-rated.js';
 import {filmListMostCommentedTemplate} from './components/most-commented.js';
 import {cardTemplate} from './components/film-card.js';
 import {showMoreTemplate} from './components/show-more.js';
+import {popupTemplate} from './components/popup.js';
 import {getRandomInt, pickRandom, generateList} from './utils.js';
 import commentMock from './mocks/comment.js';
 import filmMock from './mocks/film.js';
@@ -25,8 +26,6 @@ const generateComment = (data) => {
   }
 }
 
-const trueFalse = (int) => int ? true : false
-
 const generateFilm = (data) => {
   const id = getRandomInt(1, 999);
   const comments = generateList(generateComment, commentMock, getRandomInt(1, 5)).map((comment) => {
@@ -36,7 +35,7 @@ const generateFilm = (data) => {
   const releaseDate = new Date(releaseDateString);
   const watchedDateString = `${getRandomInt(2000, 2019)}-${getRandomInt(10, 12)}-${getRandomInt(10, 31)}T${getRandomInt(10, 24)}:${getRandomInt(10, 60)}:${getRandomInt(10, 60)}Z`
   const watchedDate = new Date(watchedDateString);
-  const watched = trueFalse(getRandomInt(0, 1));
+  const watched = getRandomInt(0, 1);
   const film_info = {
     title: pickRandom(data.film_info.title),
     alternative_title: pickRandom(data.film_info[`alternative_title`]),
@@ -56,10 +55,10 @@ const generateFilm = (data) => {
 
   };
   const user_details = {
-    watchlist: trueFalse(getRandomInt(0, 1)),
+    watchlist: getRandomInt(0, 1),
     already_watched: watched,
     watching_date: watched ? watchedDate : ``,
-    favorite: trueFalse(getRandomInt(0, 1))
+    favorite: getRandomInt(0, 1)
   }
   return {
     id,
@@ -97,5 +96,15 @@ extraBlocks.forEach((block) => {
     append(container, cardTemplate(filmList[10+i]), `beforeend`);
   }
 });
+
+const handleCardClick = () => {
+  append(mainContainer, popupTemplate(), `beforeend`);
+  const popup = mainContainer.querySelector(`.film-details`);
+  const closePopupBtn = popup.querySelector(`.film-details__close`);
+  closePopupBtn.addEventListener(`click`, () => {
+    closePopupBtn.removeEventListener(`click`);
+    popup.remove();
+  });
+}
 
 
